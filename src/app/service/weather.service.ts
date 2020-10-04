@@ -14,7 +14,7 @@ export class WeatherService {
   ) {
   }
 
-  public getWeatherByCityName(cityName: string) {
+  public getWeatherByCityName(cityName: string): any {
     const params = new HttpParams()
       .set('q', cityName)
       .set('appid', environment.API_KEY);

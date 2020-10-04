@@ -7,11 +7,17 @@
   <div class="d-flex flex-grow-1 justify-content-center align-items-center flex-column">
 
     <div>
-      content
-    </div>
+      <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
 
-    <div>
-      button
+        <mat-form-field appearance="legacy">
+          <mat-label>Enter city name here</mat-label>
+          <input matInput formControlName="cityName">
+        </mat-form-field>
+
+        <div class="d-flex justify-content-center">
+          <button mat-raised-button color="accent" type="submit" [disabled]="!cityForm.valid">Show Weather</button>
+        </div>
+      </form>
     </div>
 
   </div>
