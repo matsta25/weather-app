@@ -1,1 +1,24 @@
-<p>show-weather works!</p>
+<div class="d-flex flex-column h-100">
+
+  <div>
+    <app-toolbar></app-toolbar>
+  </div>
+
+  <div class="d-flex flex-grow-1 justify-content-center align-items-center flex-column">
+
+    <div *ngIf="actualWeatherData?.main">
+      <div>
+        {{ actualWeatherData.main.temp }}
+      </div>
+      <div>
+        {{ actualWeatherData.name }}
+      </div>
+    </div>
+
+    <div>
+      <button mat-raised-button color="accent" [routerLink]="['/', 'select-city']">Try Again!</button>
+    </div>
+
+  </div>
+
+</div>

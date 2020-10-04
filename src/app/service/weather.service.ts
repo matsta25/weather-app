@@ -9,6 +9,8 @@ const API_WEATHER_ENDPOINT = '/weather';
 })
 export class WeatherService {
 
+  public actualWeatherData = null;
+
   constructor(
     private http: HttpClient
   ) {

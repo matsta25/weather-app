@@ -4,6 +4,7 @@ import {WeatherService} from '../../service/weather.service';
 import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-select-city',
@@ -17,7 +18,8 @@ export class SelectCityComponent implements OnInit {
   });
 
   constructor(
-    private weatherService: WeatherService
+    private weatherService: WeatherService,
+    private rotuer: Router
   ) {
   }
 
@@ -27,7 +29,8 @@ export class SelectCityComponent implements OnInit {
   onSubmit(): any {
     this.weatherService.getWeatherByCityName(this.cityForm.value.cityName).pipe(
       map((data) => {
-        console.log(data);
+        this.weatherService.actualWeatherData = data;
+        this.rotuer.navigate(['/', 'show-weather']);
       }),
       catchError(
         this.handleError.bind(this)

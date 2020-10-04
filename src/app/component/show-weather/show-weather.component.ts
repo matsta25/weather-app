@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WeatherService} from '../../service/weather.service';
 
 @Component({
   selector: 'app-show-weather',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowWeatherComponent implements OnInit {
 
-  constructor() { }
+  public actualWeatherData = null;
 
-  ngOnInit(): void {
+  constructor(
+    private weatherService: WeatherService
+  ) {
   }
 
+  ngOnInit(): void {
+    this.actualWeatherData = this.weatherService.actualWeatherData;
+  }
 }
