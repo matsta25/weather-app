@@ -19,13 +19,15 @@ import {MatInputModule} from '@angular/material/input';
 import { KelvinToCelsiusPipe } from './pipe/kelvin-to-celsius.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const materialModules = [
   MatToolbarModule,
   MatButtonModule,
   MatIconModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

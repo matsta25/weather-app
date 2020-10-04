@@ -5,6 +5,7 @@ import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-select-city',
@@ -19,7 +20,8 @@ export class SelectCityComponent implements OnInit {
 
   constructor(
     private weatherService: WeatherService,
-    private rotuer: Router
+    private rotuer: Router,
+    private matSnackBar: MatSnackBar
   ) {
   }
 
@@ -44,6 +46,8 @@ export class SelectCityComponent implements OnInit {
     } else {
       console.log(error.error.cod, error.error.message);
     }
+
+    this.matSnackBar.open(`${error.error.cod} - ${error.error.message}`, 'close', {duration: 3000});
 
     return throwError(
       'Something bad happened; please try again later.');
