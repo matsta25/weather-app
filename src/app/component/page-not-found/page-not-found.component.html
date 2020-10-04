@@ -1,1 +1,19 @@
-<p>page-not-found works!</p>
+<div class="d-flex flex-column h-100">
+
+  <div>
+    <app-toolbar></app-toolbar>
+  </div>
+
+  <div class="d-flex flex-grow-1 justify-content-center align-items-center flex-column">
+
+    <div class="start-icon">
+      <mat-icon [inline]="true">warning</mat-icon>
+    </div>
+
+    <div>
+      <button mat-raised-button color="accent" [routerLink]="['/', 'start']">Home</button>
+    </div>
+
+  </div>
+
+</div>
